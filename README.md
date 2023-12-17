@@ -1,5 +1,11 @@
 # What Can You Make
 
+## Dependencies
+
+* [Node.js](https://nodejs.org/) version = 16
+ 
+    Using Node Version Manager [NVM](https://github.com/nvm-sh/nvm) is recommended.
+
 ## Installation
 
 Run:
