@@ -1,0 +1,74 @@
+{
+	"info": {
+		"_postman_id": "b5de43b0-13ff-4e1a-b9c8-7e2a8dca7c46",
+		"name": "API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14273973"
+	},
+	"item": [
+		{
+			"name": "Search All",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{APP_BASE_URL}}/api/search",
+					"host": [
+						"{{APP_BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search by name and ingredients",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"chocolate\",\n    \"ingredients\": [\"sugar\", \"butter\", \"milk\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{APP_BASE_URL}}/api/search",
+					"host": [
+						"{{APP_BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get recipe by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{APP_BASE_URL}}/api/recipe/657e5d9a3930e89c9c6a9f3c",
+					"host": [
+						"{{APP_BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"recipe",
+						"657e5d9a3930e89c9c6a9f3c"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

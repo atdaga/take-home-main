@@ -13,6 +13,7 @@ const appStartup = async (): Promise<void> => {
   // create our routes
   app.post("/api/search", searchMiddleware)
   // create a server
+  app.get("/api/recipe/:id", recipeMiddleware)
   const httpServer = new http.Server(app)
   httpServer.listen(4000, "0.0.0.0", () => {
     console.log("now running on 4000")
