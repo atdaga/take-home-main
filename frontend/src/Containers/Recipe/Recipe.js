@@ -3,6 +3,9 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from "redux"
 import * as actions from "../../actions"
 import { useParams } from 'react-router-dom'
+import ListItem from "@material-ui/core/ListItem"
+import Divider from "@material-ui/core/Divider"
+import { Layout, Title, Section, SectionTitle, SectionText } from "./styles"
 
 const Recipe = ({ getRecipe, recipe: { isLoading, recipe, error } }) => {
   const { id } = useParams();
@@ -22,13 +25,23 @@ const Recipe = ({ getRecipe, recipe: { isLoading, recipe, error } }) => {
       )
     } else if (recipe && recipe.id === id) {
       return (
-        <div>
-          <div>{recipe.name}</div>
-          <div>Ingredients</div>
-          <div>{recipe.ingredients}</div>
-          <div>Instructions</div>
-          <div>{recipe.instructions}</div>
-        </div>
+        <Layout>
+          <Title>{recipe.name}</Title>
+          <Section>
+          <SectionTitle>Ingredients</SectionTitle>
+            <Divider />
+            <div>
+              {recipe.ingredients.map((ingredient) => (
+                <ListItem key={ingredient}>* {ingredient}</ListItem>
+              ))}
+            </div>
+          </Section>
+          <Section>
+            <SectionTitle>Instructions</SectionTitle>
+            <Divider />
+            <SectionText>{recipe.instructions}</SectionText>
+          </Section>
+        </Layout>
       )
     }
   }

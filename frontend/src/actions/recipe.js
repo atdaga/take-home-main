@@ -1,4 +1,4 @@
-/* TODO: create recipe fetch actions, creators, and constants. DONE.
+/* TODO: create recipe fetch actions, creators, and constants. Done.
   API: use /api/recipe/:id as a get request to fetch the recipe info
 */
 export const GET_RECIPE = "GET_RECIPE"
