@@ -11,8 +11,9 @@ export const recipeMiddleware = async (
   if (id) {
     const foundRecipe = await RecipeModel.findById(id)
     if (foundRecipe) {
-      const { name, instructions, ingredients } = foundRecipe
+      const { id, name, instructions, ingredients } = foundRecipe
       res.send({
+        id,
         name,
         instructions,
         ingredients: ingredients.map(({ name, unit, amount }) => `${amount} ${unit} ${name}`),

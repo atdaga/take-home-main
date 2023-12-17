@@ -19,6 +19,9 @@ module.exports = {
   resolve: {
     extensions: [".js", ".json"],
     plugins: [PnpWebpackPlugin],
+    alias: {
+      'react-dom': '@hot-loader/react-dom'
+    },
   },
   resolveLoader: {
     plugins: [PnpWebpackPlugin.moduleLoader(module)],
@@ -26,9 +29,15 @@ module.exports = {
   output: {
     path: buildDir,
     filename: "[name].bundle.js",
+    publicPath: "/",
   },
   module: {
     rules: [
+      {
+        test: /\.js$/,
+        include: /node_modules\/react-dom/,
+        use: ['react-hot-loader/webpack']
+      },
       {
         test: /\.js?$/,
         include: [srcDir],
@@ -42,6 +51,7 @@ module.exports = {
   },
   devServer: {
     port: 3000,
+    historyApiFallback: true,
     contentBase: staticDir,
     publicPath: "/",
     filename: "[name].bundle.js",

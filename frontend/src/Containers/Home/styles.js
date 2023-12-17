@@ -8,3 +8,8 @@ export const HomeWrapper = styled.div`
   margin: auto;
   padding: 8px;
 `
+
+export const RecipeLink = styled.div`
+  text-transform: none;
+  font-size: 1.2em;
+`

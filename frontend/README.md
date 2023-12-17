@@ -6,7 +6,7 @@ welcome to the frontend portion of the take home. feel free to edit any part of 
 
 ## API
 
-## TODO
+## TODO. Done.
 
 1. fix the search function
 1. add a recipe component to display the response

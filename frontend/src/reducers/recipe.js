@@ -23,11 +23,11 @@ const getRecipeFailed = (state, payload) => {
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
-    case GET_SEARCH:
+    case GET_RECIPE:
       return recipeFetching()
-    case RECEIVE_SEARCH:
+    case RECEIVE_RECIPE:
       return recipeFetched(state, payload)
-    case FAIL_SEARCH:
+    case FAIL_GET_RECIPE:
       return getRecipeFailed(state, payload)
     default:
       return state
