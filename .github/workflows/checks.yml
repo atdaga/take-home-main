@@ -1,0 +1,50 @@
+name: Run checks
+on:
+  pull_request:
+    branches:
+      - main
+      - qa
+      - stg
+      - prd
+env:
+  CDK_DEPLOYMENT_QUALIFIER: test
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      # required for all workflows
+      security-events: write
+      # only required for workflows in private repositories
+      actions: read
+      contents: read
+      pull-requests: read
+    concurrency: checks-${{ github.ref_name }}
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+        cache: 'npm'
+        cache-dependency-path: yarn.lock
+
+    - name: Load cached node modules
+      id: cached-node-modules
+      uses: actions/cache@v3
+      with:
+       path: node_modules
+       key: cached-node-modules-${{ github.ref_name }}-${{ hashFiles('package-lock.json') }}
+
+    - name: Install Node dependencies if necessary
+      if: steps.cached-node-modules.outputs.cache-hit != 'true'
+      run: yarn
+
+    - name: Lint
+      run: yarn lint
+
+    - name: Build
+      run: yarn build
+
