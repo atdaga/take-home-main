@@ -2,9 +2,9 @@ import { Document, Schema, Model, model } from "mongoose"
 import { Ingredient, IngredientSchema } from "./ingredient"
 
 export interface Recipe extends Document {
-  name: string
-  instructions: string
-  ingredients: Ingredient[]
+  name: string;
+  instructions: string;
+  ingredients: Ingredient[];
 }
 
 const RecipeSchema = new Schema({

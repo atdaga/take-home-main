@@ -8,8 +8,8 @@ const escapeRegex = (text): string => {
 }
 
 interface Query {
-  name?: RegExp
-  ingredients?: Ingredient[]
+  name?: RegExp;
+  ingredients?: Ingredient[];
 }
 
 const recipeCleaner = (recipe): { id: string; name: string } => {

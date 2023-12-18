@@ -22,9 +22,9 @@ const unitIpsum = new LoremIpsum({
 })
 
 interface IngredientValues {
-  name: string
-  unit: string
-  amount: string
+  name: string;
+  unit: string;
+  amount: string;
 }
 
 const createIngredient = (): IngredientValues => {

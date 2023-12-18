@@ -7,7 +7,7 @@ import { hot } from "react-hot-loader"
 import Home from "./Containers/Home"
 import Recipe from "./Containers/Recipe"
 import reducers from "./reducers"
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 
 
 const store = createStore(reducers, applyMiddleware(thunkMiddleware))

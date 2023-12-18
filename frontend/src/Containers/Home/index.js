@@ -11,8 +11,7 @@ import LinearProgress from "@material-ui/core/LinearProgress"
 import List from "@material-ui/core/List"
 import ListItem from "@material-ui/core/ListItem"
 import * as actions from "../../actions"
-import { useNavigate } from "react-router-dom"
-import { useSearchParams } from 'react-router-dom'
+import { useNavigate, useSearchParams } from "react-router-dom"
 import { xor } from 'lodash'
 
 const ingredientList = ["flour", "sugar", "salt", "butter", "milk"]
@@ -32,7 +31,7 @@ class Home extends Component {
   fetchSearch() {
     // TODO: something is missing here for fetching. Done.
     const { term, ingredients } = this.state
-    const termTrimmed = term.trim();
+    const termTrimmed = term.trim()
     this.props.searchRecipes(termTrimmed, ingredients)
 
     // Set URL
@@ -41,11 +40,11 @@ class Home extends Component {
       i: ingredients,
     }
     const urlParams = Object.entries(params)
-      .filter(([key, val]) => val.length > 0)
-      .map(([key, val]) => `${key}=${encodeURIComponent(val)}`);
+      .filter(([, val]) => val.length > 0)
+      .map(([key, val]) => `${key}=${encodeURIComponent(val)}`)
       urlParams.length > 0 ?
         this.props.setSearchParams(`?${urlParams.join('&')}`, { replace: true }) :
-        this.props.setSearchParams('');
+        this.props.setSearchParams('')
   }
 
   componentDidMount() {
@@ -141,8 +140,8 @@ const mapDispatchToProps = (dispatch) =>
   )
 
 const HomeWithRouter = (props) => {
-  const navigate = useNavigate();
-  const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate()
+  const [searchParams, setSearchParams] = useSearchParams()
   return (
     <Home
       {...props}
@@ -151,6 +150,6 @@ const HomeWithRouter = (props) => {
       setSearchParams={setSearchParams}
     />
   )
-};
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeWithRouter)

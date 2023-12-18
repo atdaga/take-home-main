@@ -1,13 +1,13 @@
 import { RecipeModel } from "../models"
-import { Request, Response, NextFunction } from "express"
+import { Request, Response } from "express"
 
 export const recipeMiddleware = async (
   req: Request,
   res: Response,
-  next: NextFunction
+  // _next: NextFunction
 ): Promise<void> => {
   // TODO fetch and return a recipe. Done.
-  const { id } = req.params;
+  const { id } = req.params
   if (id) {
     const foundRecipe = await RecipeModel.findById(id)
     if (foundRecipe) {

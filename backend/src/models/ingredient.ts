@@ -1,9 +1,9 @@
 import { Schema } from "mongoose"
 
 export interface Ingredient {
-  name: string
-  unit: string
-  amount: number
+  name: string;
+  unit: string;
+  amount: number;
 }
 
 export const IngredientSchema = new Schema({

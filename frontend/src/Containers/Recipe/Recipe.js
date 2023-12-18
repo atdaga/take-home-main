@@ -8,7 +8,7 @@ import Divider from "@material-ui/core/Divider"
 import { Layout, Title, Section, SectionTitle, SectionText } from "./styles"
 
 const Recipe = ({ getRecipe, recipe: { isLoading, recipe, error } }) => {
-  const { id } = useParams();
+  const { id } = useParams()
 
   useEffect(() => {
     if (!isLoading) {
@@ -53,7 +53,7 @@ const Recipe = ({ getRecipe, recipe: { isLoading, recipe, error } }) => {
 const mapStateToProps = (state) => {
   return {
       recipe: state.recipe
-  };
+  }
 }
 
 const mapDispatchToProps = (dispatch) =>
