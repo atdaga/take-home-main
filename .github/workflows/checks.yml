@@ -6,8 +6,16 @@ on:
       - qa
       - stg
       - prd
-env:
-  CDK_DEPLOYMENT_QUALIFIER: test
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: Run checks manually.
+        required: true
+        default: main
+        type: choice
+        options:
+          - main
+          - qa
 
 jobs:
   check:
